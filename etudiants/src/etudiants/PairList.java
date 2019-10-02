@@ -164,15 +164,15 @@ public class PairList
         return listDePaires.get(i);
     }
     
-    public int separateAll(int i,List<Integer> etudiants, PairList listeDePaires) {
+    public List<Integer> separateAll(int i, PairList listeDePaires) {
         int j = separateFirst(i, listeDePaires);
-        
+        List<Integer> etudiants = new ArrayList<Integer>();
         while(j!=i) {
             if( !etudiants.contains(Integer.valueOf(j)))
                 etudiants.add(Integer.valueOf(j));
             j = separateFirst(i, listeDePaires);
         }
         
-        return j;
+        return etudiants;
     }
 }

@@ -26,14 +26,14 @@ public class RemplirLaClasse
         
         System.out.println();
         
-        Combinaison combinaison2 = combinaison.separate();
+      /*  Combinaison combinaison2 = combinaison.separate();
         
         combinaison.afficher();
         
         System.out.println();
         
-        combinaison2.afficher();
-        //rechercher(combinaison);
+        combinaison2.afficher();*/
+        rechercher(combinaison);
         System.out.println("Nombre d'itérations : "+ITERATIONS);
         System.out.println("Nombre de solutions : "+ resultats.size());
         FIN = System.currentTimeMillis();

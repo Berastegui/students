@@ -149,12 +149,18 @@ public class Combinaison
         
         etudiantsNew.add(Integer.valueOf(etudiant));
         
-        paires.separateAll(etudiant, etudiantsNew,listNew);
+        List<Integer> etudiantsToAdd = paires.separateAll(etudiant, listNew);
+        etudiantsNew.addAll(etudiantsToAdd);
         retirerEtudiant(etudiant);
         
-        for(Integer etudiant2 : etudiantsNew) {
-            paires.separateAll(etudiant2, etudiantsNew,listNew);
-            retirerEtudiant(etudiant2);
+        while(etudiantsToAdd!=null && etudiantsToAdd.size()>0) {
+
+            etudiantsToAdd = new ArrayList<Integer>();
+            for(Integer etudiant2 : etudiantsNew) {
+                etudiantsToAdd.addAll(paires.separateAll(etudiant2,listNew));
+                retirerEtudiant(etudiant2);
+            }
+            etudiantsNew.addAll(etudiantsToAdd);
         }
         
         return new Combinaison(listNew, etudiantsNew, nbPlaces);
